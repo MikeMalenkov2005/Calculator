@@ -4,31 +4,42 @@
 name='Microsoft.Windows.Common-Controls' version='6.0.0.0' \
 processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
+#define N 20
+
 #define _WS_BUTTON	(WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON)
-#define _WS_WINDOW	(WS_OVERLAPPEDWINDOW)
+#define _WS_WINDOW	(WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX)
 
 LRESULT CALLBACK MainWindowProc(_In_ HWND hWnd, _In_ UINT Msg, _In_ WPARAM wParam, _In_ LPARAM lParam)
 {
 	switch (Msg)
 	{
 	case WM_CREATE:
-		CreateWindowW(L"BUTTON", L"1", _WS_BUTTON, 10, 10, 30, 30, hWnd, (HMENU)ID_1, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
-		CreateWindowW(L"BUTTON", L"2", _WS_BUTTON, 50, 10, 30, 30, hWnd, (HMENU)ID_2, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
-		CreateWindowW(L"BUTTON", L"3", _WS_BUTTON, 90, 10, 30, 30, hWnd, (HMENU)ID_3, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
-		CreateWindowW(L"BUTTON", L"4", _WS_BUTTON, 10, 50, 30, 30, hWnd, (HMENU)ID_4, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
-		CreateWindowW(L"BUTTON", L"5", _WS_BUTTON, 50, 50, 30, 30, hWnd, (HMENU)ID_5, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
-		CreateWindowW(L"BUTTON", L"6", _WS_BUTTON, 90, 50, 30, 30, hWnd, (HMENU)ID_6, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
-		CreateWindowW(L"BUTTON", L"7", _WS_BUTTON, 10, 90, 30, 30, hWnd, (HMENU)ID_7, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
-		CreateWindowW(L"BUTTON", L"8", _WS_BUTTON, 50, 90, 30, 30, hWnd, (HMENU)ID_8, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
-		CreateWindowW(L"BUTTON", L"9", _WS_BUTTON, 90, 90, 30, 30, hWnd, (HMENU)ID_9, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
-		CreateWindowW(L"BUTTON", L"0", _WS_BUTTON, 50, 130, 30, 30, hWnd, (HMENU)ID_0, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
-		return DefWindowProcW(hWnd, Msg, wParam, lParam);
+		CreateWindowW(L"BUTTON", L"1", _WS_BUTTON, N * 1 , N * 5 , N * 3, N * 3, hWnd, (HMENU)ID_1  , (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		CreateWindowW(L"BUTTON", L"2", _WS_BUTTON, N * 5 , N * 5 , N * 3, N * 3, hWnd, (HMENU)ID_2  , (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		CreateWindowW(L"BUTTON", L"3", _WS_BUTTON, N * 9 , N * 5 , N * 3, N * 3, hWnd, (HMENU)ID_3  , (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		CreateWindowW(L"BUTTON", L"4", _WS_BUTTON, N * 1 , N * 9 , N * 3, N * 3, hWnd, (HMENU)ID_4  , (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		CreateWindowW(L"BUTTON", L"5", _WS_BUTTON, N * 5 , N * 9 , N * 3, N * 3, hWnd, (HMENU)ID_5  , (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		CreateWindowW(L"BUTTON", L"6", _WS_BUTTON, N * 9 , N * 9 , N * 3, N * 3, hWnd, (HMENU)ID_6  , (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		CreateWindowW(L"BUTTON", L"7", _WS_BUTTON, N * 1 , N * 13, N * 3, N * 3, hWnd, (HMENU)ID_7  , (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		CreateWindowW(L"BUTTON", L"8", _WS_BUTTON, N * 5 , N * 13, N * 3, N * 3, hWnd, (HMENU)ID_8  , (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		CreateWindowW(L"BUTTON", L"9", _WS_BUTTON, N * 9 , N * 13, N * 3, N * 3, hWnd, (HMENU)ID_9  , (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		CreateWindowW(L"BUTTON", L"0", _WS_BUTTON, N * 5 , N * 17, N * 3, N * 3, hWnd, (HMENU)ID_0  , (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		CreateWindowW(L"BUTTON", L"C", _WS_BUTTON, N * 13, N * 1 , N * 3, N * 3, hWnd, (HMENU)ID_CLR, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		CreateWindowW(L"BUTTON", L".", _WS_BUTTON, N * 1 , N * 17, N * 3, N * 3, hWnd, (HMENU)ID_DOT, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		CreateWindowW(L"BUTTON", L"+", _WS_BUTTON, N * 13, N * 5 , N * 3, N * 3, hWnd, (HMENU)ID_ADD, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		CreateWindowW(L"BUTTON", L"-", _WS_BUTTON, N * 13, N * 9 , N * 3, N * 3, hWnd, (HMENU)ID_SUB, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		CreateWindowW(L"BUTTON", L"*", _WS_BUTTON, N * 13, N * 13, N * 3, N * 3, hWnd, (HMENU)ID_MUL, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		CreateWindowW(L"BUTTON", L"/", _WS_BUTTON, N * 13, N * 17, N * 3, N * 3, hWnd, (HMENU)ID_DIV, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		CreateWindowW(L"BUTTON", L"=", _WS_BUTTON, N * 9 , N * 17, N * 3, N * 3, hWnd, (HMENU)ID_EQU, (HINSTANCE)GetWindowLongPtrW(hWnd, GWLP_HINSTANCE), NULL);
+		break;
 	case WM_DESTROY:
 		PostQuitMessage(EXIT_SUCCESS);
 		return 0;
-	default:
-		return DefWindowProcW(hWnd, Msg, wParam, lParam);
+	case WM_COMMAND:
+		if (LOWORD(wParam) > 100 && LOWORD(wParam) < 118) OnButtonPress(hWnd, LOWORD(wParam));
+		break;
 	}
+	return DefWindowProcW(hWnd, Msg, wParam, lParam);
 }
 
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPWSTR lpCmdLine, _In_ int nCmdShow)
@@ -36,6 +47,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
 	HWND hWnd;
 	MSG msg = { 0 };
 	WNDCLASSW wc = { 0 };
+	RECT rect = { 0, 0, N * 17, N * 21 };
 	//wc.style = 0;
 	wc.lpfnWndProc = MainWindowProc;
 	wc.hInstance = hInstance;
@@ -48,7 +60,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
 		MessageBoxW(NULL, L"Failed to register a window class!", L"Error!", MB_ICONERROR);
 		return EXIT_FAILURE;
 	}
-	if (!(hWnd = CreateWindowW(wc.lpszClassName, L"Calculator", _WS_WINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 640, 480, NULL, NULL, hInstance, NULL)))
+	AdjustWindowRect(&rect, _WS_WINDOW, NULL);
+	if (!(hWnd = CreateWindowW(wc.lpszClassName, L"Calculator", _WS_WINDOW, CW_USEDEFAULT, CW_USEDEFAULT, rect.right - rect.left, rect.bottom - rect.top, NULL, NULL, hInstance, NULL)))
 	{
 		MessageBoxW(NULL, L"Failed to create a main window!", L"Error!", MB_ICONERROR);
 		return EXIT_FAILURE;
@@ -60,4 +73,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
 		DispatchMessageW(&msg);
 	}
 	return (int)msg.wParam;
+}
+
+void OnButtonPress(HWND hWnd, int id)
+{
+	static WCHAR buffer[32];
+	wsprintfW(buffer, L"ID: %d", id);
+	MessageBoxW(hWnd, buffer, L"Button", MB_ICONWARNING);
 }

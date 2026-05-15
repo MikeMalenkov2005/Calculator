@@ -29,9 +29,9 @@
 #define ID_DIV  116
 #define ID_EQU  117
 
-void OnButtonPress(int id);
+void OnButtonPress(HWND hWnd, int id);
 
-void OnKeyPress(int key);
+void OnKeyPress(HWND hWnd, int key);
 
 LPWSTR ProcessAddition(LPWSTR lhs, LPWSTR rhs);
 
