@@ -33,6 +33,14 @@ void OnButtonPress(HWND hWnd, int id);
 
 void OnKeyPress(HWND hWnd, int key);
 
+void SwitchCurrentText(void);
+
+LPWSTR GetCurrentText(void);
+
+BOOL SetCurrentText(LPWSTR text);
+
+BOOL AddToCurrentText(WCHAR chr);
+
 LPWSTR ProcessAddition(LPWSTR lhs, LPWSTR rhs);
 
 LPWSTR ProcessSubtraction(LPWSTR lhs, LPWSTR rhs);

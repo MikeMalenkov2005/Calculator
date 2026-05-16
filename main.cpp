@@ -48,7 +48,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
 	MSG msg = { 0 };
 	WNDCLASSW wc = { 0 };
 	RECT rect = { 0, 0, N * 17, N * 21 };
-	//wc.style = 0;
 	wc.lpfnWndProc = MainWindowProc;
 	wc.hInstance = hInstance;
 	wc.hIcon = LoadIconW(NULL, IDI_APPLICATION);
@@ -77,7 +76,60 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
 
 void OnButtonPress(HWND hWnd, int id)
 {
-	static WCHAR buffer[32];
-	wsprintfW(buffer, L"ID: %d", id);
-	MessageBoxW(hWnd, buffer, L"Button", MB_ICONWARNING);
+	static BOOL dot;
+	static LPWSTR lhs;
+	static LPWSTR(*op)(LPWSTR, LPWSTR);
+	switch (id)
+	{
+	case ID_1:
+		AddToCurrentText(L'1');
+		break;
+	case ID_2:
+		AddToCurrentText(L'2');
+		break;
+	case ID_3:
+		AddToCurrentText(L'3');
+		break;
+	case ID_4:
+		AddToCurrentText(L'4');
+		break;
+	case ID_5:
+		AddToCurrentText(L'5');
+		break;
+	case ID_6:
+		AddToCurrentText(L'6');
+		break;
+	case ID_7:
+		AddToCurrentText(L'7');
+		break;
+	case ID_8:
+		AddToCurrentText(L'8');
+		break;
+	case ID_9:
+		AddToCurrentText(L'9');
+		break;
+	case ID_0:
+		AddToCurrentText(L'0');
+		break;
+	case ID_CLR:
+		if (!GetCurrentText()[0])
+		{
+			lhs = NULL;
+			op = NULL;
+		}
+		SetCurrentText(NULL);
+		dot = FALSE;
+		break;
+	case ID_DOT:
+		if (!dot)
+		{
+			AddToCurrentText(L'.');
+			dot = TRUE;
+		}
+		break;
+	case ID_EQU:
+		if (op) SetCurrentText(op(lhs, GetCurrentText()));
+		MessageBox(hWnd, GetCurrentText(), L"Result", MB_ICONINFORMATION);
+		break;
+	}
 }
