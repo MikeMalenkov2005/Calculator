@@ -127,6 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="mul_div.cpp" />
+    <ClCompile Include="sub_add.cpp" />
     <ClCompile Include="text.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

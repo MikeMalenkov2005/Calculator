@@ -1,6 +1,6 @@
 #include "main.h"
 
-#define LEN	1024
+#define LEN	24
 
 static SIZE_T len[2], i;
 static WCHAR buffer[2][LEN];
@@ -19,7 +19,7 @@ BOOL SetCurrentText(LPWSTR text)
 {
 	SIZE_T l = lstrlenW(text);
 	if (l >= LEN) return FALSE;
-	if (l) memcpy(buffer, text, l * sizeof(*text));
+	if (l) memcpy(buffer[i], text, l * sizeof(*text));
 	buffer[i][len[i] = l] = 0;
 }
 
